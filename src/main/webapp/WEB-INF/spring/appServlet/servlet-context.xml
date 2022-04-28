@@ -32,18 +32,19 @@
       <beans:property name="dataSource" ref="dataSource"/>
    </beans:bean>
 	
-	<!--  트랜잭션 transaction bean -->
+
+	<!-- transaction bean -->
 	<beans:bean name="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
-		<beans:property name="dataSource" ref="dataSource"/>
+		<beans:property name="dataSource" ref="dataSource"></beans:property>
 	</beans:bean>
-	<beans:bean name="transactionTemplate" class="org.springframework.transaction.support.TransactionTemplate">
-		<beans:property name="transactionManager" ref="transactionManager"></beans:property>
 	
+	<beans:bean name="transactionTemplate" class="org.springframework.transaction.support.TransactionTemplate">	
+		<beans:property name="transactionManager" ref="transactionManager"></beans:property>
 	</beans:bean>
 	
 	<beans:bean name="dao" class="com.javatest.spring22_1_ex1.TicketDao">
-		<beans:property name="template" ref="template"/>
-		<beans:property name="transactionTemplate" ref="transactionTemplate"/>
+		<beans:property name="template" ref="template"></beans:property>
+		<beans:property name="transactionTemplate" ref="transactionTemplate"></beans:property>
 	</beans:bean>
 
 	<context:component-scan base-package="com.javatest.spring22_1_ex1" />
